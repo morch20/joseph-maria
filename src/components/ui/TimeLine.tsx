@@ -34,6 +34,9 @@ export function TimeLineElement(props: TimeLineElementProps) {
                 padding: "0px",
                 boxShadow: "0 0 0 0",
             }}
+            contentArrowStyle={{
+                borderRightColor: "hsl(var(--secondary))",
+            }}
             {...rest}
         >
             {children}

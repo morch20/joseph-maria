@@ -19,7 +19,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={Exo2.className}>
                 <Header />
-                <main className="container space-y-20 lg:py-6 2xl:py-12">
+                <main className="container space-y-20 lg:py-4 2xl:py-10">
                     {children}
                 </main>
                 <Footer />

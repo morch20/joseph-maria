@@ -3,19 +3,13 @@ import { Button } from "@/components/ui/Button";
 import TextSection from "@/components/ui/TextSection";
 import Photo from "@/components/Photo";
 import Experience from "@/components/Experience";
+import { Tooltip, TooltipTrigger } from "@/components/ui/Tooltip";
 
 export default function Home() {
     return (
         <>
-            <section className="flex min-h-[85vh] w-full flex-col items-center justify-between lg:flex-row-reverse lg:items-stretch">
-                {/* <div className="relative h-fit w-fit">
-                    <Image src="/me.png" alt="me" width={150} height={150} />
-                    <div className="absolute right-0 top-0 z-[1] h-full w-full bg-background/20" />
-                </div> */}
-
-                {/* <div className="h-32 w-full"> */}
+            <section className="flex min-h-[calc(100vh-64px)] w-full flex-col items-center justify-between sm:min-h-[calc(100vh-72px)] lg:flex-row-reverse lg:items-stretch">
                 <Photo />
-                {/* </div> */}
 
                 <div className="flex h-auto flex-col justify-around space-y-6 text-center md:w-3/5 lg:text-start">
                     <div className="space-y-6 2xl:space-y-12">
@@ -46,32 +40,50 @@ export default function Home() {
                                 DOWNLOAD CV <Download size={20} />
                             </Button>
                             <div className="flex items-center justify-around gap-x-6 text-primary lg:ml-6">
-                                <Button
-                                    size="icon"
-                                    variant="outline"
-                                    className="rounded-full border-2 border-primary"
-                                >
-                                    <a
-                                        href="https://github.com/morch20"
-                                        target="_blank"
-                                        rel="noreferrer"
+                                <TooltipTrigger>
+                                    <Button
+                                        size="icon"
+                                        variant="outline"
+                                        className="rounded-full border-2 border-primary"
                                     >
-                                        <Github size={20} />
-                                    </a>
-                                </Button>
-                                <Button
-                                    size="icon"
-                                    className="rounded-full border-2 border-primary"
-                                    variant="outline"
-                                >
-                                    <a
-                                        href="https://www.linkedin.com/in/joseph-maria"
-                                        target="_blank"
-                                        rel="noreferrer"
+                                        <a
+                                            href="https://github.com/morch20"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <Github size={20} />
+                                        </a>
+                                    </Button>
+                                    <Tooltip
+                                        className="text-card-foreground"
+                                        position="top"
+                                        arrow
                                     >
-                                        <Linkedin size={20} />
-                                    </a>
-                                </Button>
+                                        <p>GitHub</p>
+                                    </Tooltip>
+                                </TooltipTrigger>
+                                <TooltipTrigger>
+                                    <Button
+                                        size="icon"
+                                        className="rounded-full border-2 border-primary"
+                                        variant="outline"
+                                    >
+                                        <a
+                                            href="https://www.linkedin.com/in/joseph-maria"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <Linkedin size={20} />
+                                        </a>
+                                    </Button>
+                                    <Tooltip
+                                        className="text-card-foreground"
+                                        position="top"
+                                        arrow
+                                    >
+                                        <p>LinkedIn</p>
+                                    </Tooltip>
+                                </TooltipTrigger>
                             </div>
                         </div>
                     </div>

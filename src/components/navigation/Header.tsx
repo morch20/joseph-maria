@@ -4,7 +4,7 @@ import { Button } from "../ui/Button";
 
 export default function Header() {
     return (
-        <header className="container sticky top-0 z-10 flex items-center justify-between bg-background py-2 sm:py-4">
+        <header className="container sticky top-0 z-10 flex items-center justify-between bg-background/90 py-2 backdrop-blur sm:py-4">
             <h1 className="text-4xl font-medium">
                 Joe{" "}
                 <div className="inline-block size-2 rounded-full bg-primary" />

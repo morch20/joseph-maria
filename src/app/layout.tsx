@@ -16,10 +16,10 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className="scroll-smooth">
             <body className={Exo2.className}>
                 <Header />
-                <main className="container space-y-20 overflow-x-hidden lg:py-4 2xl:py-10">
+                <main className="overflow-x-hidden container space-y-20 lg:py-4 2xl:py-10">
                     {children}
                 </main>
                 <Footer />

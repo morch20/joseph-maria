@@ -13,7 +13,7 @@ export default function Experience() {
     return (
         <section
             id="experience"
-            className="min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-72px)]"
+            className="min-h-[calc(100vh-64px)] snap-start scroll-mt-[92px] sm:min-h-[calc(100vh-72px)]"
         >
             <p className="text-muted-foreground 2xl:text-lg">
                 WHAT I HAVE WORK SO FAR

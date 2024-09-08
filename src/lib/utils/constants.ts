@@ -6,3 +6,18 @@ export const onTapBounceAnimation = {
         damping: 10,
     },
 };
+
+export const links = [
+    {
+        name: "Experience",
+        href: "#experience",
+    },
+    {
+        name: "Skills",
+        href: "#skills",
+    },
+    {
+        name: "Projects",
+        href: "#projects",
+    },
+];

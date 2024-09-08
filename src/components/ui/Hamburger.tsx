@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
 import { cn } from "@/lib/utils/functions";
 
@@ -29,16 +29,24 @@ export function Hamburger({ children }: { children: React.ReactNode }) {
     return (
         // eslint-disable-next-line react/jsx-no-constructed-context-values
         <HamburgerContext.Provider value={{ open, setOpen }}>
-            <div className="hamburger relative md:hidden">{children}</div>
+            <div className="hamburger md:hidden">{children}</div>
         </HamburgerContext.Provider>
     );
 }
 
 export function HamburgerButton() {
-    const { setOpen } = useHamburger();
+    const { setOpen, open } = useHamburger();
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (inputRef.current) {
+            inputRef.current.checked = open;
+        }
+    }, [open]);
     return (
         <label htmlFor="hamburger" className="cursor-pointer">
             <input
+                ref={inputRef}
                 id="hamburger"
                 type="checkbox"
                 onChange={() => setOpen((prev) => !prev)}
@@ -61,7 +69,7 @@ export interface HamburgerContentProps extends HTMLMotionProps<"div"> {
 
 export function HamburgerContent(props: HamburgerContentProps) {
     const { children, className } = props;
-    const { open } = useHamburger();
+    const { open, setOpen } = useHamburger();
 
     return (
         <AnimatePresence>
@@ -77,13 +85,36 @@ export function HamburgerContent(props: HamburgerContentProps) {
                     key="hamburgerContent"
                     {...props}
                     className={cn(
-                        "fixed left-0 z-10 h-full w-full bg-muted/30",
+                        "fixed left-0 top-[64px] z-10 h-screen w-full bg-muted/70",
                         className
                     )}
+                    onClick={() => setOpen(false)}
+                    aria-hidden
                 >
                     {children}
                 </motion.div>
             )}
         </AnimatePresence>
+    );
+}
+
+export interface HamburgerLinkProps
+    extends React.HTMLAttributes<HTMLDivElement> {
+    children: React.ReactNode;
+    className?: string;
+}
+export function HamburgerLink(props: HamburgerLinkProps) {
+    const { children, className = "", ...rest } = props;
+    const { setOpen } = useHamburger();
+
+    return (
+        <div
+            aria-hidden
+            {...rest}
+            className={cn(className)}
+            onClick={() => setOpen(false)}
+        >
+            {children}
+        </div>
     );
 }

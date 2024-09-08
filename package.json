@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "clean": "rimraf .next coverage tsconfig.tsbuildinfo .swc",
+        "clean": "rimraf coverage tsconfig.tsbuildinfo .swc",
+        "clean:next": "rimraf .next coverage tsconfig.tsbuildinfo .swc",
         "test": "jest --verbose",
         "test:watch": "jest --verbose --watch",
         "test:coverage": "jest --coverage",
